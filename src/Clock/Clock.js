@@ -8,14 +8,16 @@ function Welcome(props) {
 function CurrentTime(props) {
     return <h2>It is { props.date }</h2>;
 }
-function Clock(props) {
-    return (
-        <div>
-            <Welcome name={ data.name } />
-            <CurrentTime date={ data.date(props.date) } />
-        </div>
-    );
-};
+class Clock extends React.Component {
+    render() {
+        return (
+            <div>
+                <Welcome name={ data.name } />
+                <CurrentTime date={ data.date(this.props.date) } />
+            </div>
+        );
+    }
+}
 const data = {
     name: "John Doe",
     date: date => date.toLocaleTimeString()
