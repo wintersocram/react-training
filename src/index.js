@@ -1,16 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import './index.css';
 // import AppBase from './AppBase/AppBase';
-import HelloWorld from './HelloWorld/HelloWorld';
+// import HelloWorld from './HelloWorld/HelloWorld';
+import Clock from './Clock/Clock';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-    <HelloWorld />, 
-    document.getElementById('root')
-);
+// ReactDOM.render(HelloWorld, document.getElementById('root'));
+
+Clock();
+
+// OR
+// function tick() {
+//     const element = (
+//         <div>
+//             <h1>Hello, Clock!</h1>
+//             <h2>It is {new Date().toLocaleTimeString()}.</h2>
+//         </div>
+//     );
+//     ReactDOM.render(element, document.getElementById('root'));
+// }
+// setInterval(tick, 1000);
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();
