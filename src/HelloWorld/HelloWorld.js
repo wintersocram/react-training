@@ -3,15 +3,23 @@ import React from 'react';
 // 'React' must be in scope when using JSX  react/react-in-jsx-scope
 // Search for the keywords to learn more about each error.
 
+function formatName(user) {
+    return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+    firstName: 'John',
+    lastName: 'Doe'
+};
+const place = 'World';
+
 function HelloWorld() {
-    const name = 'John Doe';
-    const place = 'World';
     const elementName = (
         <h1>
-            Hello, { name }!!!
+            Hello, { formatName(user) }!!!
         </h1>
     );
-    const elementPlace = <h2>Hello, { place }!!!</h2>;
+    // const elementPlace = <h2>Hello, { place }!!!</h2>;
 
     // It will generate an error:
     // Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>?
@@ -43,9 +51,9 @@ function HelloWorld() {
 
     // Returns object
     console.log('%o, %o', typeof elementName, elementName);
-    return typeof elementName;
+    // return typeof elementName;
 
     // Returns the object React
-    // return elementName;
+    return elementName;
 }
 export default HelloWorld;
