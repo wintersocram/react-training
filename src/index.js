@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 // import ReactDOM from 'react-dom';
 import './index.css';
 // import AppBase from './AppBase/AppBase';
 // import HelloWorld from './HelloWorld/HelloWorld';
-import SetClock from './Clock/Clock';
+import SetClock from './Clock/SetClock';
 import * as serviceWorker from './serviceWorker';
 
 // ReactDOM.render(HelloWorld, document.getElementById('root'));

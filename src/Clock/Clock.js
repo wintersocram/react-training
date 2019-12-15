@@ -1,10 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Welcome from './Welcome'
+import CurrentTime from './CurrentTime'
 
-class Clock extends React.Component {
+export default class Clock extends React.Component {
     constructor(props) {
         super(props);
         this.state = { date: new Date() };
+        this.data = {
+            name: "John Doe",
+            date: date => date.toLocaleTimeString()
+        };
     }
 
     tick() {
@@ -26,29 +31,9 @@ class Clock extends React.Component {
     render() {
         return (
             <div>
-                <Welcome name={ data.name } />
-                <CurrentTime date={ data.date(this.state.date) } />
+                <Welcome name={ this.data.name } />
+                <CurrentTime date={ this.data.date(this.state.date) } />
             </div>
         );
     }
-}
-
-const data = {
-    name: "John Doe",
-    date: date => date.toLocaleTimeString()
-};
-
-function Welcome(props) {
-    return <h1>Hello, { props.name }</h1>;
-}
-function CurrentTime(props) {
-    return <h2>It is { props.date }</h2>;
-}
-
-
-export default function SetClock() {
-    ReactDOM.render(
-        <Clock />, 
-        document.getElementById('root')
-    );
 }
