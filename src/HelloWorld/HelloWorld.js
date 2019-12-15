@@ -2,24 +2,31 @@ import React from 'react';
 // import React from 'react':
 // 'React' must be in scope when using JSX  react/react-in-jsx-scope
 // Search for the keywords to learn more about each error.
+import logo from '../img/react-logo.svg';
+
+
+const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    avatarUrl: logo
+};
 
 function formatName(user) {
     return user.firstName + ' ' + user.lastName;
 }
 
-const user = {
-    firstName: 'John',
-    lastName: 'Doe'
-};
-
 function getGreeting(user) {
     if (user)
-        return <h1>Hello, {formatName(user)}!</h1>;
-    return <h1>Hello, Stranger.</h1>;
+        return (
+            <div>
+                <h1 class="hello-user">Hello, {formatName(user)}!</h1>
+                <img src={ user.avatarUrl }></img>;
+            </div>
+        );
+    return <h1 class="hello-stranger">Hello, Stranger.</h1>;
 }
 
-function HelloWorld() {
-    // return getGreeting(user);
-    return getGreeting();
+export default function HelloWorld() {
+    return getGreeting(user);
+    // return getGreeting();
 }
-export default HelloWorld;
