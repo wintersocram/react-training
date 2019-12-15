@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AppBase from './AppBase/AppBase';
+// import AppBase from './AppBase/AppBase';
 import HelloWorld from './HelloWorld/HelloWorld';
 import * as serviceWorker from './serviceWorker';
 
