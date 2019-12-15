@@ -1,15 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export default function Clock() {
-    function tick() {
-        const element = (
-            <div>
-                <h1>Hello, Clock!</h1>
-                <h2>It is {new Date().toLocaleTimeString()}.</h2>
-            </div>
-        );
-        ReactDOM.render(element, document.getElementById('root'));    
-    }
+function Welcome(props) {
+    return <h1>Hello, { props.name }</h1>;
+}
+
+function CurrentTime(props) {
+    return <h2>It is { props.date }</h2>;
+}
+function Clock(props) {
+    return (
+        <div>
+            <Welcome name={ data.name } />
+            <CurrentTime date={ data.date(props.date) } />
+        </div>
+    );
+};
+const data = {
+    name: "John Doe",
+    date: date => date.toLocaleTimeString()
+};
+
+function tick() {
+    ReactDOM.render(<Clock date={ new Date() } />, document.getElementById('root'));    
+}
+
+export default function SetClock() {
     setInterval(tick, 1000);
 }
