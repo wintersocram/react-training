@@ -1,13 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Welcome(props) {
-    return <h1>Hello, { props.name }</h1>;
-}
-
-function CurrentTime(props) {
-    return <h2>It is { props.date }</h2>;
-}
 class Clock extends React.Component {
     render() {
         return (
@@ -18,10 +11,18 @@ class Clock extends React.Component {
         );
     }
 }
+
 const data = {
     name: "John Doe",
     date: date => date.toLocaleTimeString()
 };
+
+function Welcome(props) {
+    return <h1>Hello, { props.name }</h1>;
+}
+function CurrentTime(props) {
+    return <h2>It is { props.date }</h2>;
+}
 
 function tick() {
     ReactDOM.render(<Clock date={ new Date() } />, document.getElementById('root'));    
