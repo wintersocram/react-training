@@ -11,6 +11,12 @@ const user = {
     avatarUrl: logo
 };
 
+const element = React.createElement(
+    'h1',
+    {className: 'hello-user'},
+    'Hello, ' + formatName(user) + '!'
+);
+
 function formatName(user) {
     return user.firstName + ' ' + user.lastName;
 }
@@ -19,7 +25,7 @@ function getGreeting(user) {
     if (user)
         return (
             <div>
-                <h1 class="hello-user">Hello, {formatName(user)}!</h1>
+                {element}
                 <img src={ user.avatarUrl }></img>;
             </div>
         );
