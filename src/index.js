@@ -1,14 +1,15 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
 // import AppBase from './AppBase/AppBase';
 // import HelloWorld from './HelloWorld/HelloWorld';
-import SetClock from './Clock/SetClock';
+// import SetClock from './Clock/SetClock';
+import GetForm from './formTest1/formTest'
 import * as serviceWorker from './serviceWorker';
 
-// ReactDOM.render(HelloWorld, document.getElementById('root'));
+ReactDOM.render(<GetForm />, document.getElementById('root'));
 
-SetClock();
+// SetClock();
 
 // OR
 // function tick() {
