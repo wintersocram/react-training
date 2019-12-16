@@ -7,11 +7,43 @@ function BoilingVerdict(props) {
 }
 
 export default class Calculator extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
+        this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
+        this.state = {
+            temperature: '',
+            scale: ''
+        };
+    }
+    handleCelsiusChange(temperature) {
+        console.log('[Calculator::handleCelsiusChange] - temperature: %o', temperature);
+        this.setState({scale: 'c', temperature});
+    }
+
+    handleFahrenheitChange(temperature) {
+        console.log('[Calculator::handleFahrenheitChange] - temperature: %o', temperature);
+        this.setState({scale: 'f', temperature});
+    }
     render () {
+        const scale = this.state.scale;
+        const temperature = this.state.temperature;
+        const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
+        const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
         return (
             <div>
-              <TemperatureInput scale="c" />
-              <TemperatureInput scale="f" />
+                <TemperatureInput 
+                    scale="c" 
+                    onTemperatureChange={ this.handleCelsiusChange } 
+                    temperature={ celsius }
+                />
+                <TemperatureInput 
+                    scale="f" 
+                    onTemperatureChange={ this.handleFahrenheitChange } 
+                    temperature={ fahrenheit }
+                />
+                <BoilingVerdict 
+                    celsius={parseFloat(celsius)} />
             </div>
             
         );
@@ -27,23 +59,26 @@ class TemperatureInput extends React.Component {
     constructor(props) {
       super(props);
       this.handleChange = this.handleChange.bind(this);
-      this.state = {temperature: ''};
+    //   this.state = {temperature: ''};
     }
   
     handleChange(e) {
-      this.setState({temperature: e.target.value});
+        console.log('[TemperatureInput::handleChange]');
+        // Antes: this.setState({temperature: e.target.value});
+        this.props.onTemperatureChange(e.target.value);
     }
   
     render() {
-      const temperature = this.state.temperature;
-      const scale = this.props.scale;
-      return (
-        <fieldset>
-          <legend>Informe a temperatura em {scaleNames[scale]}:</legend>
-          <input value={temperature}
-                 onChange={this.handleChange} />
-        </fieldset>
-      );
+        // Antes: const temperature = this.state.temperature;
+        const temperature = this.props.temperature;
+        const scale = this.props.scale;
+        return (
+            <fieldset>
+            <legend>Informe a temperatura em {scaleNames[scale]}:</legend>
+            <input value={temperature}
+                    onChange={this.handleChange} />
+            </fieldset>
+        );
     }
 }
 
