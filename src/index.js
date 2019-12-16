@@ -4,10 +4,11 @@ import './index.css';
 // import AppBase from './AppBase/AppBase';
 // import HelloWorld from './HelloWorld/HelloWorld';
 // import SetClock from './Clock/SetClock';
-import GetForm from './formTest1/formTest'
+// import GetForm from './formTest1/formTest'
+import Calculator from './Calculator/GetCalculator';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<GetForm />, document.getElementById('root'));
+ReactDOM.render(<Calculator />, document.getElementById('root'));
 
 // SetClock();
 
