@@ -5,10 +5,11 @@ import './index.css';
 // import HelloWorld from './HelloWorld/HelloWorld';
 // import SetClock from './Clock/SetClock';
 // import GetForm from './formTest1/formTest'
-import Calculator from './Calculator/GetCalculator';
+// import Calculator from './Calculator/GetCalculator';
+import Fragments from './Fragments/Fragments';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Calculator />, document.getElementById('root'));
+ReactDOM.render(<Fragments />, document.getElementById('root'));
 
 // SetClock();
 
